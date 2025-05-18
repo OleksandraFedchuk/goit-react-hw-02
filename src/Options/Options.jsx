@@ -1,6 +1,10 @@
 import css from "./Options.module.css";
 
 export default function Options() {
+  const updateFeedback = (feedbackType) => {
+    // Тут використовуй сеттер, щоб оновити стан
+  };
+
   return (
     <div>
       <button>Good</button>
