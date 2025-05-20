@@ -8,7 +8,7 @@ export default function Feedback({ good, neutral, bad, total, positive }) {
         <li>Neutral : {neutral}</li>
         <li>Bad : {bad}</li>
         <li>Total : {total}</li>
-        <li>Positive : {positive}</li>
+        <li>Positive : {positive}%</li>
       </ul>
     </div>
   );
