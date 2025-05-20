@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Descrition from "../../Description/Descrition";
 import Feedback from "../../Feedback/Feedback";
 import Options from "../../Options/Options";
@@ -11,11 +11,31 @@ export default function App() {
     bad: 0,
   });
 
+  const updateFeedback = (feedbackType) => {
+    setFeedback((feedback) => ({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1,
+    }));
+  };
+
+  const onReset = () => setFeedback({ good: 0, bad: 0, neutral: 0 });
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
   return (
     <div>
       <Descrition />
-      <Feedback />
-      <Options />
+      <Options
+        updateFeedback={updateFeedback}
+        onReset={onReset}
+        totalFeedback={totalFeedback}
+      />
+      <Feedback
+        good={feedback.good}
+        bad={feedback.bad}
+        neutral={feedback.neutral}
+        total={totalFeedback}
+        positive={positiveFeedback}
+      />
     </div>
   );
 }

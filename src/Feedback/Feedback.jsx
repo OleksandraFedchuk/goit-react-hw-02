@@ -1,9 +1,15 @@
 // import css from "./Feedback.module.css";
 
-export default function Feedback() {
+export default function Feedback({ good, neutral, bad, total, positive }) {
   return (
     <div>
-      <p>Some text</p>
+      <ul>
+        <li>Good : {good}</li>
+        <li>Neutral : {neutral}</li>
+        <li>Bad : {bad}</li>
+        <li>Total : {total}</li>
+        <li>Positive : {positive}</li>
+      </ul>
     </div>
   );
 }
