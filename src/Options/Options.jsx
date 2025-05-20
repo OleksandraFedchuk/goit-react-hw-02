@@ -1,20 +1,20 @@
-// import css from "./Options.module.css";
+import css from "./Options.module.css";
 
 export default function Options({ updateFeedback, onReset, totalFeedback }) {
   return (
-    <div>
-      <ul>
-        <li>
+    <div className={css.box}>
+      <ul className={css.list}>
+        <li className={css.button}>
           <button onClick={() => updateFeedback("good")}>Good</button>
         </li>
-        <li>
+        <li className={css.button}>
           <button onClick={() => updateFeedback("neutral")}>Neutral</button>
         </li>
-        <li>
+        <li className={css.button}>
           <button onClick={() => updateFeedback("bad")}>Bad</button>
         </li>
         {totalFeedback > 0 && (
-          <li>
+          <li className={css.button}>
             <button onClick={() => onReset("reset")}>Reset</button>
           </li>
         )}
